@@ -23,6 +23,8 @@ class ElementHandler {
 const t = (html) =>  `<!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
             body {
                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -61,7 +63,7 @@ const t = (html) =>  `<!DOCTYPE html>
     <body>
         <div style="text-align: center">
             <h2 style="text-align: center">A reader mode sharable url built with Cloudflare workers</h2 style="align: center">
-            <i>If you find a bug with the generated text, please find an issue over <a href="https://github.com/tuananh/reader/issues/new" target="_blank">GitHub</a>.</i>
+            <i>If you find a bug with the generated text, please find an issue over <a href="https://github.com/tuananh/reader/issues/new" target="_blank" rel="noopener">GitHub</a>.</i>
         </div>
         </hr>
         ${html}
