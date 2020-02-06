@@ -1,0 +1,14 @@
+name = "reader"
+type = "webpack"
+account_id = "e8ff9c2855e44e717fff487f7627b58f"
+workers_dev = true
+
+[env.staging]
+name = "reader-staging"
+zone_id = "047c8ea67667f0773e8c6d162b2dd285"
+route = "reader-staging.tuananh.net/*"
+
+[env.production]
+name = "reader-production"
+zone_id = "047c8ea67667f0773e8c6d162b2dd285"
+route = "reader.tuananh.net/*"

@@ -1,0 +1,25 @@
+{
+  "name": "reader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuananh/reader.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tuananh/reader/issues"
+  },
+  "homepage": "https://github.com/tuananh/reader#readme",
+  "dependencies": {
+    "readability": "git+https://github.com/tuananh/readability.git"
+  },
+  "devDependencies": {
+    "@cloudflare/wrangler": "^1.6.0"
+  }
+}
