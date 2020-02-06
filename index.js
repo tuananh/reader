@@ -20,11 +20,13 @@ class ElementHandler {
 }
 
 // without sanitize :-o
-const t = (html) =>  `<!DOCTYPE html>
+const render = (parsed) =>  `<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>${parsed.title}</title>
+        <meta name="description" content="${parsed.excerpt}">
         <style>
             body {
                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -66,7 +68,9 @@ const t = (html) =>  `<!DOCTYPE html>
             <i>If you find a bug with the generated text, please find an issue over <a href="https://github.com/tuananh/reader/issues/new" target="_blank" rel="noopener">GitHub</a>.</i>
         </div>
         </hr>
-        ${html}
+
+        <h2>${parsed.title}</h2>
+        ${parsed.content}
     </body>
 </html>
 `
@@ -104,7 +108,7 @@ async function fetchAndLog(request) {
     const reader = new Readability(doc, {
         charThreshold: 2000
     })
-    const article = reader.parse()
+    const article = reader.parse()    
 
-    return new Response(t(article.content), responseInit)
+    return new Response(render(article), responseInit)
 }
