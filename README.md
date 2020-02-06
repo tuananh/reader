@@ -26,6 +26,10 @@ Upon navigating to the above url, it will render the target domain in reader mod
 * Dark mode.
 * Use a more lightweight css framework instead of milligram.
 
+## Usage
+
+You can drag this <a href="javascript:(function()%7Bwindow.open('https%3A%2F%2Freader.tuananh.net%2F%3Furl%3D'%2Bwindow.location.href%2C%20'_blank')%7D)()">bookmarklet</a> to bookmark bar.
+
 ## License
 
 Copyright 2020 Tuan Anh Tran <me@tuananh.org>
