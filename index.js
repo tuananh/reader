@@ -2,7 +2,7 @@ const Readability = require('readability')
 const { JSDOMParser } = require('readability/JSDOMParser')
 
 addEventListener('fetch', event => {
-    event.respondWith(fetchAndLog(event.request))
+    event.respondWith(fetchAndRender(event.request))
 })
 
 const toBeRemovedTags = ['head', 'script', 'style', 'noscript', 'iframe']
@@ -79,7 +79,7 @@ const htmlHeaders = { 'Content-Type': 'text/html; charset=utf-8' }
 const fetchHeaders = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
 }
-async function fetchAndLog(request) {
+async function fetchAndRender(request) {
     const url = new URL(request.url).searchParams.get('url')    
     if (!url) {
         const responseInit = {
