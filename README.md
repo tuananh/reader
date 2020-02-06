@@ -24,7 +24,7 @@ Upon navigating to the above url, it will render the target domain in reader mod
 ## TODO
 
 * Dark mode.
-* Use a more lightweight css framework instead of milligram.
+* [x] Use a more lightweight css framework instead of milligram.
 
 ## Usage
 

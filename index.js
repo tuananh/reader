@@ -25,11 +25,33 @@ const htmlHeaders = { 'Content-Type': 'text/html; charset=utf-8' }
 const t = (html) =>  `<!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+                line-height: 1.6;
+                color: #222;
+                max-width: 40rem;
+                padding: 2rem;
+                margin: auto;
+                background: #fafafa;
+            }
+
+            img {
+                max-width: 100%;
+            }
+
+            a {
+                color: #2ECC40;
+            }
+
+            h1,
+            h2,
+            strong {
+                color: #111;
+            }
+        </style>
     </head>
-    <body style="max-width: 800px; margin: 0 auto;">
+    <body>
         <h2 style="text-align: center">A reader mode sharable url built with Cloudflare workers</h2 style="align: center">
         <p>If you find a bug with the generated text, please find an issue over <a href="https://github.com/tuananh/reader/issues">GitHub</a>.</p>
         </hr>
