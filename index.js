@@ -52,15 +52,17 @@ const t = (html) =>  `<!DOCTYPE html>
         </style>
     </head>
     <body>
-        <h2 style="text-align: center">A reader mode sharable url built with Cloudflare workers</h2 style="align: center">
-        <p>If you find a bug with the generated text, please find an issue over <a href="https://github.com/tuananh/reader/issues">GitHub</a>.</p>
+        <div style="text-align: center">
+            <h2 style="text-align: center">A reader mode sharable url built with Cloudflare workers</h2 style="align: center">
+            <i>If you find a bug with the generated text, please find an issue over <a href="https://github.com/tuananh/reader/issues" target="_blank">GitHub</a>.</i>
+        </div>
         </hr>
         ${html}
     </body>
 </html>
 `
 async function fetchAndLog(request) {
-    const url = new URL(request.url).searchParams.get('url')
+    const url = new URL(request.url).searchParams.get('url')    
     if (!url) {
         const responseInit = {
             status: 400,
