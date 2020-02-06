@@ -19,8 +19,6 @@ class ElementHandler {
     }
 }
 
-const htmlHeaders = { 'Content-Type': 'text/html; charset=utf-8' }
-
 // without sanitize :-o
 const t = (html) =>  `<!DOCTYPE html>
 <html>
@@ -49,18 +47,32 @@ const t = (html) =>  `<!DOCTYPE html>
             strong {
                 color: #111;
             }
+            @media (prefers-color-scheme: dark) {
+                body {
+                    background-color: black;
+                    color: #ccc;
+                }
+                h1, h2, strong {
+                    color: #e0e0e0;
+                }
+            }
         </style>
     </head>
     <body>
         <div style="text-align: center">
             <h2 style="text-align: center">A reader mode sharable url built with Cloudflare workers</h2 style="align: center">
-            <i>If you find a bug with the generated text, please find an issue over <a href="https://github.com/tuananh/reader/issues" target="_blank">GitHub</a>.</i>
+            <i>If you find a bug with the generated text, please find an issue over <a href="https://github.com/tuananh/reader/issues/new" target="_blank">GitHub</a>.</i>
         </div>
         </hr>
         ${html}
     </body>
 </html>
 `
+
+const htmlHeaders = { 'Content-Type': 'text/html; charset=utf-8' }
+const fetchHeaders = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+}
 async function fetchAndLog(request) {
     const url = new URL(request.url).searchParams.get('url')    
     if (!url) {
@@ -71,7 +83,7 @@ async function fetchAndLog(request) {
         return new Response('Error: missing url. Eg: https://reader.tuananh.net/?url=https://www.theverge.com/2020/2/5/21124201/bill-simmons-the-ringer-spotify-acquistion-podcast-purchase', responseInit)
     }
 
-    const oldResp = await fetch(url, {cf: { cacheTtl: 300 }})
+    const oldResp = await fetch(url, {...fetchHeaders, cf: { cacheTtl: 3000 }})
     const newResp = new HTMLRewriter()
         .on('*', new ElementHandler())
         .transform(oldResp)
@@ -87,7 +99,9 @@ async function fetchAndLog(request) {
     // return new Response(text, responseInit)
 
     const doc = new JSDOMParser().parse(text, 'http://fakehost/')
-    const reader = new Readability(doc)
+    const reader = new Readability(doc, {
+        charThreshold: 2000
+    })
     const article = reader.parse()
 
     return new Response(t(article.content), responseInit)
