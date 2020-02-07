@@ -20,11 +20,14 @@ Upon navigating to the above url, it will render the target domain in reader mod
 * Get a pretty, sharable reader mode url.
 * Bypass subscription.
 * Cached by Cloudflare.
+* Respect OS prefer color scheme (dark mode).
+* Minimal CSS.
 
 ## TODO
 
 * [x] Dark mode.
 * [x] Use a more lightweight css framework instead of milligram.
+* [ ] Let user manually override preferred color scheme.
 
 ## Usage
 
