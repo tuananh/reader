@@ -42,12 +42,12 @@ const render = parsed => `<!DOCTYPE html>
     </head>
     <body>
         <div style="text-align: center">
-            <h2 style="text-align: center">A reader mode sharable url built with Cloudflare workers</h2 style="align: center">
+            <h2>A reader mode sharable url built with Cloudflare workers</h2>
             <i>If you find a bug with the generated text, please find an issue over <a href="https://github.com/tuananh/reader/issues/new" target="_blank" rel="noopener">GitHub</a>.</i>
         </div>
         </hr>
 
-        <h2>${parsed.title}</h2>
+        <h1>${parsed.title}</h1>
         <strong>${parsed.byline}</strong>
         ${parsed.content}
     </body>
