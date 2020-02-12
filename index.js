@@ -27,7 +27,7 @@ const fetchHeaders = {
 }
 async function fetchAndRender(request) {
     const url = new URL(request.url).searchParams.get('url')
-    
+
     if (!url) {
         const responseInit = {
             status: 400,
@@ -57,11 +57,21 @@ async function fetchAndRender(request) {
 
     // return new Response(text, responseInit)
 
-    const doc = new JSDOMParser().parse(text, parsedUrl.protocol + '//' + parsedUrl.host)
+    const doc = new JSDOMParser().parse(
+        text,
+        parsedUrl.protocol + '//' + parsedUrl.host
+    )
     const reader = new Readability(doc, {
         charThreshold: 2000
     })
     const article = reader.parse()
+
+    const contentType = request.headers.get('Content-Type')
+    if (contentType && contentType.indexOf('application/json') !== -1) {
+        return new Response(JSON.stringify(article), {
+            'Content-Type': 'text/html; charset=utf-8'
+        })
+    }
 
     return new Response(render(article), responseInit)
 }
