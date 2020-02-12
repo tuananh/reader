@@ -22,6 +22,7 @@ Upon navigating to the above url, it will render the target domain in reader mod
 * Cached by Cloudflare.
 * Respect OS prefer color scheme (dark mode).
 * Minimal CSS.
+* Return JSON if request `Content-Type` is `application/json`. Effectively become an API to extract text.
 
 ## TODO
 
