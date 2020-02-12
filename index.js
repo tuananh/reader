@@ -71,7 +71,9 @@ async function fetchAndRender(request) {
         return new Response(JSON.stringify(article), {
             status: 200,
             headers: {
-                'Content-Type': 'text/html; charset=utf-8'
+                'Content-Type': 'text/html; charset=utf-8',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
             }
         })
     }
