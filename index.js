@@ -69,7 +69,10 @@ async function fetchAndRender(request) {
     const contentType = request.headers.get('Content-Type')
     if (contentType && contentType.indexOf('application/json') !== -1) {
         return new Response(JSON.stringify(article), {
-            'Content-Type': 'text/html; charset=utf-8'
+            status: 200,
+            headers: {
+                'Content-Type': 'text/html; charset=utf-8'
+            }
         })
     }
 
