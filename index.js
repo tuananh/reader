@@ -78,5 +78,5 @@ async function fetchAndRender(request) {
         })
     }
 
-    return new Response(render(article), responseInit)
+    return new Response(render({...article, url}), responseInit)
 }
