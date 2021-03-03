@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/tuananh/reader#readme",
   "dependencies": {
-    "readability": "git+https://github.com/tuananh/readability.git"
+    "readability": "git+https://github.com/tuananh/readability.git#a7d860ff911f9a24052b8074996d1722ee1c921d"
   },
   "devDependencies": {
     "@cloudflare/wrangler": "^1.6.0"
