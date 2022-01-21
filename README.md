@@ -1,5 +1,13 @@
 🤓 reader
-======
+=========
+
+Update: new version is available at https://reader-next.pages.dev
+
+preview url
+
+```
+https://reader-next.pages.dev?url=https://netflixtechblog.medium.com/cache-warming-leveraging-ebs-for-moving-petabytes-of-data-adcf7a4a78c3
+```
 
 An attempt to build a reader mode for any url with [Cloudflare workers](https://workers.cloudflare.com/).
 
