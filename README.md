@@ -1,6 +1,8 @@
 🤓 reader
 =========
 
+# DEPRECATED: See [tuananh/reader2](https://github.com/tuananh/reader2).
+
 Update: new version is available at https://reader-next.pages.dev
 
 preview url
